@@ -35,7 +35,6 @@ class AuthRepository implements IAuthFacade {
     final String token = response.data['token'];
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.setString(apiToken, token);
-    AppHTTPClient.setApiToken(token: token);
 
     final UserProfile profile = UserProfile.fromJson(response.data);
     return profile;
@@ -68,7 +67,6 @@ class AuthRepository implements IAuthFacade {
     final String token = response.data['token'];
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.setString(apiToken, token);
-    AppHTTPClient.setApiToken(token: token);
 
     final UserProfile profile = UserProfile.fromJson(response.data);
     return profile;
