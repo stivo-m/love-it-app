@@ -15,7 +15,7 @@ class Name {
   const Name._(this.value);
 
   Map<String, dynamic> toMap() {
-    return {'value': value.getOrElse(() => '').toString()};
+    return <String, dynamic>{'value': value.getOrElse(() => '').toString()};
   }
 
   factory Name.fromMap(Map<String, dynamic> map) {

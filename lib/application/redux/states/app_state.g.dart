@@ -16,6 +16,9 @@ _$_AppState _$$_AppStateFromJson(Map<String, dynamic> json) => _$_AppState(
       matchState: json['matchState'] == null
           ? null
           : MatchState.fromJson(json['matchState'] as Map<String, dynamic>),
+      themeState: json['themeState'] == null
+          ? null
+          : ThemeState.fromJson(json['themeState'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AppStateToJson(_$_AppState instance) =>
@@ -23,4 +26,5 @@ Map<String, dynamic> _$$_AppStateToJson(_$_AppState instance) =>
       'chatState': instance.chatState,
       'authState': instance.authState,
       'matchState': instance.matchState,
+      'themeState': instance.themeState,
     };

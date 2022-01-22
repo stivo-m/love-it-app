@@ -13,7 +13,7 @@ class ChatRepository implements IChatFacade {
     AppHTTPClient(token: token);
     final Dio client = AppHTTPClient.client!;
 
-    final Response response = await client.get(
+    final Response<dynamic> response = await client.get(
       '/chat/getMessages',
       queryParameters: <String, dynamic>{
         'chatID': chatID,
@@ -22,7 +22,7 @@ class ChatRepository implements IChatFacade {
     final Map<String, dynamic> chats = response.data;
 
     List<ChatMessage?>? messages;
-    for (var i = 0; i < chats.length; i++) {
+    for (int i = 0; i < chats.length; i++) {
       final ChatMessage? message = ChatMessage.fromJson(chats[i]);
       messages?.add(message);
     }
@@ -37,7 +37,7 @@ class ChatRepository implements IChatFacade {
     AppHTTPClient(token: token);
     final Dio client = AppHTTPClient.client!;
 
-    final Response response = await client.post(
+    final Response<dynamic> response = await client.post(
       '/chat/sendMessage',
       data: message?.toJson(),
     );
@@ -53,7 +53,7 @@ class ChatRepository implements IChatFacade {
     AppHTTPClient(token: token);
     final Dio client = AppHTTPClient.client!;
 
-    final Response response = await client.post(
+    final Response<dynamic> response = await client.post(
       '/chat/updateMessage',
       data: message?.toJson(),
     );

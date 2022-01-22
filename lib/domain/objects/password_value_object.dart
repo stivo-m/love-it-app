@@ -15,7 +15,7 @@ class Password {
   const Password._(this.value);
 
   Map<String, dynamic> toMap() {
-    return {'value': value.getOrElse(() => '').toString()};
+    return <String, dynamic>{'value': value.getOrElse(() => '').toString()};
   }
 
   factory Password.fromMap(Map<String, dynamic> map) {

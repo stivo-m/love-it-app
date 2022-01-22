@@ -17,7 +17,7 @@ class EmailAddress {
   const EmailAddress._(this.value);
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'email': value.getOrElse(() => '').toString(),
     };
   }

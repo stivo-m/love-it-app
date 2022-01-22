@@ -14,7 +14,7 @@ class MatchRepository implements IMatchFacade {
     AppHTTPClient(token: token);
     final Dio client = AppHTTPClient.client!;
 
-    final Response response = await client.post(
+    final Response<dynamic>  response = await client.post(
       '/match/addDislike',
       data: <String, dynamic>{
         'hasDisliked': dislikeID,
@@ -33,7 +33,7 @@ class MatchRepository implements IMatchFacade {
     AppHTTPClient(token: token);
     final Dio client = AppHTTPClient.client!;
 
-    final Response response = await client.post(
+    final Response<dynamic>  response = await client.post(
       '/match/addMatch',
       data: <String, dynamic>{
         'matchID': matchId,
