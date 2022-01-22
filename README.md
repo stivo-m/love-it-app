@@ -1,3 +1,5 @@
+[![Love IT CI/CD Workflow](https://github.com/stivo-m/love-it-app/actions/workflows/cicd.yaml/badge.svg?branch=main)](https://github.com/stivo-m/love-it-app/actions/workflows/cicd.yaml)
+
 # love_it_app
 
 This is an interesting app that I decided to build for learning purposes. 
