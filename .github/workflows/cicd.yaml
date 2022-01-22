@@ -1,41 +1,35 @@
-name: Love It CI/CD Workflow
+name: Love IT CI/CD Workflow
 
-on:
-  [push]
-  # Allows you to run this workflow manually from the Actions tab
+on: [push]
 
 jobs:
-  run-tests-and-report-coverage:
+  run-tests-and-coverage:
+    name: Analyze, test and report coverage
     runs-on: ubuntu-latest
+    timeout-minutes: 150
     if: github.event_name == 'push'
     steps:
-      # Setup the java environment
-      - name: Setup Java environment
-        uses: actions/setup-java@v1
-        with:
-          java-version: "12.x"
-
       - uses: actions/checkout@v2
-
-      # Setup python and ruby
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12"
       - uses: actions/setup-python@v1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
 
-      # Setup the flutter environment
-      - name: Setup flutter
-        uses: subosito/flutter-action@v1.5.0
+      - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
           flutter-version: "2.5.2"
 
-      # Install dependencies
-      - run: flutter pub get
+      - name: Install flutter dependencies
+        run: |
+          flutter clean
+          flutter pub get
 
-      # Analyze, Run tests and report coverage
-      - name: Analyze, Run tests and report coverage
-      - run: |
+      - name: Analyze and Test
+        run: |
           flutter analyze
           sudo apt-get -qq update
           sudo apt-get install -qqy lcov python3-pip 
