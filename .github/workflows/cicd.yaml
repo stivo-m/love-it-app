@@ -1,0 +1,47 @@
+name: Love It CI/CD Workflow
+
+on:
+  [push]
+  # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  run-tests-and-report-coverage:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      # Setup the java environment
+      - name: Setup Java environment
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+
+      - uses: actions/checkout@v2
+
+      # Setup python and ruby
+      - uses: actions/setup-python@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      # Setup the flutter environment
+      - name: Setup flutter
+        uses: subosito/flutter-action@v1.5.0
+        with:
+          channel: "stable"
+          flutter-version: "2.5.2"
+
+      # Install dependencies
+      - run: flutter pub get
+
+      # Analyze, Run tests and report coverage
+      - name: Analyze, Run tests and report coverage
+      - run: |
+          flutter analyze
+          sudo apt-get -qq update
+          sudo apt-get install -qqy lcov python3-pip 
+          pip3 install -Uqqq lxml && pip3 install -Uqqq beautifulsoup4
+          flutter test --coverage test/ 
+          lcov --remove coverage/lcov.info 'lib/**/*.g.dart' -o coverage/lcov.info
+          lcov --remove coverage/lcov.info 'lib/**/*.freezed.dart' -o coverage/lcov.info
+          genhtml -q -o coverage coverage/lcov.info
+          python3 check_coverage.py
