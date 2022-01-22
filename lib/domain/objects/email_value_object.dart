@@ -24,7 +24,7 @@ class EmailAddress {
 
   factory EmailAddress.fromMap(Map<String, dynamic> map) {
     return EmailAddress.withValue(
-      input: map['email'],
+      input: map['email'] as String,
     );
   }
 
@@ -32,5 +32,5 @@ class EmailAddress {
   String? get val => value.getOrElse(() => '');
 
   factory EmailAddress.fromJson(String source) =>
-      EmailAddress.fromMap(json.decode(source));
+      EmailAddress.fromMap(json.decode(source) as Map<String, dynamic>);
 }

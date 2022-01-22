@@ -19,11 +19,12 @@ class Name {
   }
 
   factory Name.fromMap(Map<String, dynamic> map) {
-    return Name.withValue(input: map['value']);
+    return Name.withValue(input: map['value'] as String);
   }
 
   String toJson() => json.encode(toMap());
   String? get val => value.getOrElse(() => '');
 
-  factory Name.fromJson(String source) => Name.fromMap(json.decode(source));
+  factory Name.fromJson(String source) =>
+      Name.fromMap(json.decode(source) as Map<String, dynamic>);
 }

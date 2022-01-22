@@ -19,7 +19,7 @@ class Password {
   }
 
   factory Password.fromMap(Map<String, dynamic> map) {
-    return Password.withValue(input: map['value']);
+    return Password.withValue(input: map['value'] as String);
   }
 
   String toJson() => json.encode(toMap());
@@ -27,5 +27,5 @@ class Password {
   String? get val => value.getOrElse(() => '');
 
   factory Password.fromJson(String source) =>
-      Password.fromMap(json.decode(source));
+      Password.fromMap(json.decode(source) as Map<String, dynamic>);
 }

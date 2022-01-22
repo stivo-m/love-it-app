@@ -19,11 +19,12 @@ class ChatRepository implements IChatFacade {
         'chatID': chatID,
       },
     );
-    final Map<String, dynamic> chats = response.data;
+    final Map<String, dynamic> chats = response.data as Map<String, dynamic>;
 
     List<ChatMessage?>? messages;
     for (int i = 0; i < chats.length; i++) {
-      final ChatMessage? message = ChatMessage.fromJson(chats[i]);
+      final ChatMessage? message =
+          ChatMessage.fromJson(chats[i] as Map<String, dynamic>);
       messages?.add(message);
     }
 
@@ -42,7 +43,8 @@ class ChatRepository implements IChatFacade {
       data: message?.toJson(),
     );
 
-    final ChatMessage? msg = ChatMessage.fromJson(response.data);
+    final ChatMessage? msg =
+        ChatMessage.fromJson(response.data as Map<String, dynamic>);
     return msg;
   }
 
@@ -58,7 +60,8 @@ class ChatRepository implements IChatFacade {
       data: message?.toJson(),
     );
 
-    final ChatMessage? msg = ChatMessage.fromJson(response.data);
+    final ChatMessage? msg =
+        ChatMessage.fromJson(response.data as Map<String, dynamic>);
     return msg;
   }
 }

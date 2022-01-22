@@ -34,17 +34,19 @@ class AuthRepository implements IAuthFacade {
       );
 
       // save the user token on shared preference
-      final String token = response.data['token'];
+      final String token = response.data['token'] as String;
       SharedPreferences preferences = await SharedPreferences.getInstance();
       await preferences.setString(apiToken, token);
 
       final UserProfile profile = UserProfile(
-        firstName: Name.withValue(input: response.data['data']['firstName']),
-        lastName: Name.withValue(input: response.data['data']['lastName']),
-        age: response.data['data']['age'],
-        id: response.data['data']['id'],
+        firstName:
+            Name.withValue(input: response.data['data']['firstName'] as String),
+        lastName:
+            Name.withValue(input: response.data['data']['lastName'] as String),
+        age: response.data['data']['age'] as String,
+        id: response.data['data']['id'] as String,
         emailAddress: EmailAddress.withValue(
-          input: response.data['data']['email'],
+          input: response.data['data']['email'] as String,
         ),
         gender: Gender.values.firstWhere(
           (Gender g) =>
@@ -59,7 +61,7 @@ class AuthRepository implements IAuthFacade {
           return left(genericServerError);
         }
 
-        return left(e.response?.data['error']);
+        return left(e.response?.data['error'] as String);
       }
 
       return left(e.toString());
@@ -91,17 +93,19 @@ class AuthRepository implements IAuthFacade {
       );
 
       // save the user token on shared preference
-      final String token = response.data['token'];
+      final String token = response.data['token'] as String;
       SharedPreferences preferences = await SharedPreferences.getInstance();
       await preferences.setString(apiToken, token);
 
       final UserProfile profile = UserProfile(
-        firstName: Name.withValue(input: response.data['data']['firstName']),
-        lastName: Name.withValue(input: response.data['data']['lastName']),
-        age: response.data['data']['age'],
-        id: response.data['data']['id'],
+        firstName:
+            Name.withValue(input: response.data['data']['firstName'] as String),
+        lastName:
+            Name.withValue(input: response.data['data']['lastName'] as String),
+        age: response.data['data']['age'] as String,
+        id: response.data['data']['id'] as String,
         emailAddress: EmailAddress.withValue(
-          input: response.data['data']['email'],
+          input: response.data['data']['email'] as String,
         ),
         gender: Gender.values.firstWhere(
           (Gender g) =>
@@ -116,7 +120,7 @@ class AuthRepository implements IAuthFacade {
           return left(genericServerError);
         }
 
-        return left(e.response?.data['error']);
+        return left(e.response?.data['error'] as String);
       }
 
       return left(e.toString());
