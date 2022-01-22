@@ -61,7 +61,7 @@ class AuthRepository implements IAuthFacade {
           return left(genericServerError);
         }
 
-        return left(e.response?.data['error'] as String);
+        return left(e.response?.data['error'].toString() as String);
       }
 
       return left(e.toString());

@@ -8,6 +8,7 @@ import 'package:love_it_app/application/utils/utils.dart';
 import 'package:love_it_app/domain/objects/email_value_object.dart';
 import 'package:love_it_app/domain/objects/password_value_object.dart';
 import 'package:love_it_app/domain/objects/strings.dart';
+import 'package:love_it_app/domain/objects/widget_keys.dart';
 import 'package:love_it_app/presentation/pages/auth/widget/auth_header.dart';
 import 'package:love_it_app/presentation/router/routes.dart';
 import 'package:love_it_app/presentation/widgets/app_button.dart';
@@ -70,6 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
 
                           TextInputWidget(
+                            key: AppKes.emailInputKey,
                             controller: _email,
                             hintText: emailText,
                             keyBoardInputType: TextInputType.emailAddress,
@@ -81,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
 
                           TextInputWidget(
+                            key: AppKes.passwordInputKey,
                             controller: _password,
                             hintText: passwordText,
                             leading: Icon(CupertinoIcons.lock),
@@ -104,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                             height: 30,
                           ),
                           AppButton(
+                            key: AppKes.submitButtonKey,
                             buttonText: loginTitle,
                             isLoading: checkIfWaiting(
                                 flag: AppFlags.loginFlag, context: context),
