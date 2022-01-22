@@ -31,7 +31,10 @@ jobs:
           flutter-version: "2.5.2"
 
       # Install dependencies
-      - run: flutter pub get
+      - name: Install dependencies
+        run: |
+          flutter clean
+          flutter pub get
 
       # Analyze, Run tests and report coverage
       - name: Analyze, Run tests and report coverage
