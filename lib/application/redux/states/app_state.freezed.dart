@@ -25,12 +25,14 @@ class _$AppStateTearOff {
   _AppState call(
       {ChatState? chatState,
       AuthState? authState,
+      BottomNavState? bottomNavState,
       MatchState? matchState,
       ThemeState? themeState,
       @JsonKey(ignore: true) Wait? wait}) {
     return _AppState(
       chatState: chatState,
       authState: authState,
+      bottomNavState: bottomNavState,
       matchState: matchState,
       themeState: themeState,
       wait: wait,
@@ -49,6 +51,7 @@ const $AppState = _$AppStateTearOff();
 mixin _$AppState {
   ChatState? get chatState => throw _privateConstructorUsedError;
   AuthState? get authState => throw _privateConstructorUsedError;
+  BottomNavState? get bottomNavState => throw _privateConstructorUsedError;
   MatchState? get matchState => throw _privateConstructorUsedError;
   ThemeState? get themeState => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,12 +70,14 @@ abstract class $AppStateCopyWith<$Res> {
   $Res call(
       {ChatState? chatState,
       AuthState? authState,
+      BottomNavState? bottomNavState,
       MatchState? matchState,
       ThemeState? themeState,
       @JsonKey(ignore: true) Wait? wait});
 
   $ChatStateCopyWith<$Res>? get chatState;
   $AuthStateCopyWith<$Res>? get authState;
+  $BottomNavStateCopyWith<$Res>? get bottomNavState;
   $MatchStateCopyWith<$Res>? get matchState;
   $ThemeStateCopyWith<$Res>? get themeState;
 }
@@ -89,6 +94,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   $Res call({
     Object? chatState = freezed,
     Object? authState = freezed,
+    Object? bottomNavState = freezed,
     Object? matchState = freezed,
     Object? themeState = freezed,
     Object? wait = freezed,
@@ -102,6 +108,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.authState
           : authState // ignore: cast_nullable_to_non_nullable
               as AuthState?,
+      bottomNavState: bottomNavState == freezed
+          ? _value.bottomNavState
+          : bottomNavState // ignore: cast_nullable_to_non_nullable
+              as BottomNavState?,
       matchState: matchState == freezed
           ? _value.matchState
           : matchState // ignore: cast_nullable_to_non_nullable
@@ -140,6 +150,17 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   }
 
   @override
+  $BottomNavStateCopyWith<$Res>? get bottomNavState {
+    if (_value.bottomNavState == null) {
+      return null;
+    }
+
+    return $BottomNavStateCopyWith<$Res>(_value.bottomNavState!, (value) {
+      return _then(_value.copyWith(bottomNavState: value));
+    });
+  }
+
+  @override
   $MatchStateCopyWith<$Res>? get matchState {
     if (_value.matchState == null) {
       return null;
@@ -170,6 +191,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   $Res call(
       {ChatState? chatState,
       AuthState? authState,
+      BottomNavState? bottomNavState,
       MatchState? matchState,
       ThemeState? themeState,
       @JsonKey(ignore: true) Wait? wait});
@@ -178,6 +200,8 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   $ChatStateCopyWith<$Res>? get chatState;
   @override
   $AuthStateCopyWith<$Res>? get authState;
+  @override
+  $BottomNavStateCopyWith<$Res>? get bottomNavState;
   @override
   $MatchStateCopyWith<$Res>? get matchState;
   @override
@@ -197,6 +221,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   $Res call({
     Object? chatState = freezed,
     Object? authState = freezed,
+    Object? bottomNavState = freezed,
     Object? matchState = freezed,
     Object? themeState = freezed,
     Object? wait = freezed,
@@ -210,6 +235,10 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.authState
           : authState // ignore: cast_nullable_to_non_nullable
               as AuthState?,
+      bottomNavState: bottomNavState == freezed
+          ? _value.bottomNavState
+          : bottomNavState // ignore: cast_nullable_to_non_nullable
+              as BottomNavState?,
       matchState: matchState == freezed
           ? _value.matchState
           : matchState // ignore: cast_nullable_to_non_nullable
@@ -232,6 +261,7 @@ class _$_AppState implements _AppState {
   _$_AppState(
       {this.chatState,
       this.authState,
+      this.bottomNavState,
       this.matchState,
       this.themeState,
       @JsonKey(ignore: true) this.wait});
@@ -244,6 +274,8 @@ class _$_AppState implements _AppState {
   @override
   final AuthState? authState;
   @override
+  final BottomNavState? bottomNavState;
+  @override
   final MatchState? matchState;
   @override
   final ThemeState? themeState;
@@ -253,7 +285,7 @@ class _$_AppState implements _AppState {
 
   @override
   String toString() {
-    return 'AppState(chatState: $chatState, authState: $authState, matchState: $matchState, themeState: $themeState, wait: $wait)';
+    return 'AppState(chatState: $chatState, authState: $authState, bottomNavState: $bottomNavState, matchState: $matchState, themeState: $themeState, wait: $wait)';
   }
 
   @override
@@ -263,6 +295,8 @@ class _$_AppState implements _AppState {
             other is _AppState &&
             const DeepCollectionEquality().equals(other.chatState, chatState) &&
             const DeepCollectionEquality().equals(other.authState, authState) &&
+            const DeepCollectionEquality()
+                .equals(other.bottomNavState, bottomNavState) &&
             const DeepCollectionEquality()
                 .equals(other.matchState, matchState) &&
             const DeepCollectionEquality()
@@ -275,6 +309,7 @@ class _$_AppState implements _AppState {
       runtimeType,
       const DeepCollectionEquality().hash(chatState),
       const DeepCollectionEquality().hash(authState),
+      const DeepCollectionEquality().hash(bottomNavState),
       const DeepCollectionEquality().hash(matchState),
       const DeepCollectionEquality().hash(themeState),
       const DeepCollectionEquality().hash(wait));
@@ -294,6 +329,7 @@ abstract class _AppState implements AppState {
   factory _AppState(
       {ChatState? chatState,
       AuthState? authState,
+      BottomNavState? bottomNavState,
       MatchState? matchState,
       ThemeState? themeState,
       @JsonKey(ignore: true) Wait? wait}) = _$_AppState;
@@ -304,6 +340,8 @@ abstract class _AppState implements AppState {
   ChatState? get chatState;
   @override
   AuthState? get authState;
+  @override
+  BottomNavState? get bottomNavState;
   @override
   MatchState? get matchState;
   @override

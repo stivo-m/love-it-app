@@ -15,3 +15,7 @@ const String genericServerError =
     'We cannot complete your request at the moment. Please try again later';
 const String registerAccountText = 'New here? Create an account';
 const String loginToAccountText = 'Have an account? Login here';
+const String homeText = 'Home';
+const String chatText = 'Chats';
+const String profileText = 'Profile';
+const String enterMessageHereText = 'Enter your message here';

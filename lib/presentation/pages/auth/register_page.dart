@@ -10,6 +10,7 @@ import 'package:love_it_app/domain/objects/enums.dart';
 import 'package:love_it_app/domain/objects/name_value_object.dart';
 import 'package:love_it_app/domain/objects/password_value_object.dart';
 import 'package:love_it_app/domain/objects/strings.dart';
+import 'package:love_it_app/domain/objects/widget_keys.dart';
 import 'package:love_it_app/presentation/pages/auth/widget/auth_header.dart';
 import 'package:love_it_app/presentation/widgets/app_button.dart';
 import 'package:love_it_app/presentation/widgets/text_input_widget.dart';
@@ -41,6 +42,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
           builder: (BuildContext context, AuthViewModel vm) {
             return SingleChildScrollView(
               child: Column(
+                key: AppKes.scrollKey,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   // header
@@ -113,6 +115,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
 
                           TextInputWidget(
+                            key: AppKes.emailInputKey,
                             controller: _email,
                             hintText: emailText,
                             keyBoardInputType: TextInputType.emailAddress,
@@ -124,6 +127,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
 
                           TextInputWidget(
+                            key: AppKes.passwordInputKey,
                             controller: _password,
                             hintText: passwordText,
                             leading: Icon(CupertinoIcons.lock),
@@ -147,6 +151,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             height: 30,
                           ),
                           AppButton(
+                            key: AppKes.submitButtonKey,
                             buttonText: registerTitle,
                             isLoading: checkIfWaiting(
                                 flag: AppFlags.registerFlag, context: context),

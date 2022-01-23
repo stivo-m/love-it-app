@@ -15,11 +15,11 @@ class Name {
   const Name._(this.value);
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{'value': value.getOrElse(() => '').toString()};
+    return <String, dynamic>{'name': value.getOrElse(() => '').toString()};
   }
 
   factory Name.fromMap(Map<String, dynamic> map) {
-    return Name.withValue(input: map['value'] as String);
+    return Name.withValue(input: map['name'] as String);
   }
 
   String toJson() => json.encode(toMap());
