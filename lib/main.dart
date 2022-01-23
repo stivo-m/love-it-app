@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme(),
         themeMode: store.state.themeState!.themeMode,
         onGenerateRoute: generateRoute,
-        initialRoute: store.state.authState!.token == null
+        initialRoute: store.state.authState!.token != null
             ? AppRoutes.loginRoute
             : AppRoutes.homePage,
       ),

@@ -28,7 +28,7 @@ class AppButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
           child: Center(
             child: isLoading!
-                ? CircularProgressIndicator(
+                ? CircularProgressIndicator.adaptive(
                     valueColor: AlwaysStoppedAnimation<Color>(
                         Theme.of(context).colorScheme.secondary),
                   )

@@ -7,6 +7,7 @@ class AppTheme {
   static const Color primaryLightColor = Color(0XFFFFFFFF);
   static const Color primaryColor = Color(0XFF197BBD);
   static const Color accentColor = Color(0XFFF9BD24);
+  static const Color offWhiteColor = Color(0xfff8f8ff);
 
   static ThemeData darkTheme() {
     return ThemeData.dark().copyWith(
@@ -15,6 +16,7 @@ class AppTheme {
         background: primaryDarkColor,
         error: errorColor,
         primary: primaryColor,
+        surface: Colors.black54,
         secondary: accentColor,
         onBackground: primaryLightColor,
         onPrimary: primaryLightColor,
@@ -31,6 +33,7 @@ class AppTheme {
         background: primaryLightColor,
         error: errorColor,
         primary: primaryColor,
+        surface: offWhiteColor,
         secondary: accentColor,
         onBackground: primaryDarkColor,
         onPrimary: primaryLightColor,

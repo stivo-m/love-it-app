@@ -5,6 +5,8 @@ import 'package:love_it_app/application/redux/states/app_state.dart';
 import 'package:love_it_app/presentation/router/router_generator.dart';
 
 const String testEmail = 'test@email.com';
+const String testFirstName = 'John';
+const String testLastName = 'Doe';
 
 Future<void> buildTestWidget({
   required WidgetTester tester,
@@ -16,7 +18,7 @@ Future<void> buildTestWidget({
     store: store,
     child: MaterialApp(
       onGenerateRoute: generateRoute,
-      home: child,
+      home: Scaffold(body: child),
     ),
   ));
 }

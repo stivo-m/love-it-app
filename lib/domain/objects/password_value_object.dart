@@ -15,11 +15,11 @@ class Password {
   const Password._(this.value);
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{'value': value.getOrElse(() => '').toString()};
+    return <String, dynamic>{'password': value.getOrElse(() => '').toString()};
   }
 
   factory Password.fromMap(Map<String, dynamic> map) {
-    return Password.withValue(input: map['value'] as String);
+    return Password.withValue(input: map['password'] as String);
   }
 
   String toJson() => json.encode(toMap());
